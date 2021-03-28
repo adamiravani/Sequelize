@@ -6,9 +6,18 @@ async function populateResturant() {
   console.table(diningData);
   const name = document.querySelector(".name");
   const address = document.querySelector(".address");
+  const id = document.querySelector('.id')
 
   diningData.data.forEach((item) => {
 
+    const appendID = document.createElement('ul');
+    appendID.classList.add('.id')
+    appendID.innerHTML = `
+    ${item.hall_id}
+    `;
+    id.append(appendID);
+
+    
     const appendName = document.createElement('ul');
     //appendName.classList.add('title', 'has-text-centered','is-parent','is-3')
     appendName.classList.add('.name')
