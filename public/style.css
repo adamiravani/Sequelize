@@ -1,3 +1,25 @@
 h1 {
-    text-align: center
+    text-align: center;
+    font-size: 72px;
+}
+
+section {
+    text-align:center;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+body {
+    background-color: #cfe0e8;
+    text-align:center;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+thead {
+    background-color: #b7d7e8;
+}
+
+tbody, ul {
+    background-color: #87bdd8;
 }
