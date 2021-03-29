@@ -1,13 +1,7 @@
-h1 {
-    text-align: center;
-    font-size: 72px;
+h1,h2,h3 {
+    line-height: 1.2;
 }
 
-section {
-    text-align:center;
-    margin-right:auto;
-    margin-left:auto;
-}
 
 body {
     background-color: #cfe0e8;
