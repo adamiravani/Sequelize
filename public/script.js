@@ -1,46 +1,23 @@
-count = 0;
+async function populateDiners() {
+  const diningRequest = await fetch("/api/dining"); // gets the dining data using our api
+  const diningData = await diningRequest.json();  // converts the data to json
+  const dinerArray = diningData.data; // helps store the data?
+  console.table(dinerArray); // prints results as a table to console
+  const target = document.querySelector('.target'); // selecting where in the html we will insert the rows below
 
-async function populateResturant() {
-  const diningRequest = await fetch("/api/dining");
-  const diningData = await diningRequest.json();
-  console.table(diningData);
-  const name = document.querySelector(".name");
-  const address = document.querySelector(".address");
-  const id = document.querySelector('.id')
-
-  diningData.data.forEach((item) => {
-
-    const appendID = document.createElement('ul');
-    appendID.classList.add('.id')
-    appendID.innerHTML = `
-    ${item.hall_id}
-    `;
-    id.append(appendID);
-
-    
-    const appendName = document.createElement('ul');
-    //appendName.classList.add('title', 'has-text-centered','is-parent','is-3')
-    appendName.classList.add('.name')
-    appendName.innerHTML = `
-    ${item.hall_name}
-    `;
-    name.append(appendName);
-
-    const appendAddress = document.createElement('ul');
-    //appendAddress.classList.add('title', 'has-text-centered','is-parent','is-3')
-    appendAddress.classList.add('.address')
-    appendAddress.innerHTML = `
-    ${item.hall_address.split(',')[0]}
-    `;
-    address.append(appendAddress);
-
-
-
+  dinerArray.forEach((item) => { //for each item in dinerArray, do this
+    const rows = document.createElement('tr'); // creates rows, a 'table row' variable that we will populate and insert to the html
+    rows.innerHTML = `
+    <td>${item.hall_id}</td> 
+    <td>${item.hall_name}</td>
+    <td>${item.hall_address}</td>
+    `; // populates three rows containing information snippets from each item
+    target.append(rows); // inserts our html into the index.html using the rows variable @ the target location 
   });
 }
 
 async function windowActions() {
-  populateResturant();
+  populateDiners();
 }
 
 window.onload = windowActions();
